@@ -19,12 +19,12 @@ function Navbar() {
             </Link>
           </li>
           <li className="nav__item">
-            <Link href="/sign-in">
+            <Link href="/api/auth/signin">
               <a className="nav__link">Sign In</a>
             </Link>
           </li>
           <li className="nav__item">
-            <Link href="/sign-out">
+            <Link href="/api/auth/signout">
               <a className="nav__link">Sign Out</a>
             </Link>
           </li>

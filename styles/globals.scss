@@ -1,0 +1,32 @@
+@import "partials/variables";
+@import "partials/typography";
+@import "components/navbar";
+@import "components/footer";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  color: $color-dark-2;
+}
+
+.main {
+  min-height: calc(100vh - 12rem);
+  padding: 4rem 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 108rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

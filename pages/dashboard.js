@@ -1,11 +1,11 @@
-function Home() {
+function Dashboard() {
   return (
     <main className="main">
       <div className="container">
-        <h1>Home Page</h1>
+        <h1>Dashboard</h1>
       </div>
     </main>
   );
 }
 
-export default Home;
+export default Dashboard;

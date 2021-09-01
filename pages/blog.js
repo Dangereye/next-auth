@@ -1,11 +1,11 @@
-function Home() {
+function Blog() {
   return (
     <main className="main">
       <div className="container">
-        <h1>Home Page</h1>
+        <h1>Blog</h1>
       </div>
     </main>
   );
 }
 
-export default Home;
+export default Blog;

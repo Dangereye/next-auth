@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { signIn, signOut } from "next-auth/client";
+import { signIn, signOut, useSession } from "next-auth/client";
 
 function Navbar() {
+  const [session, loading] = useSession();
+  console.log({ session, loading });
   return (
     <nav className="nav">
       <div className="container">
@@ -19,32 +21,36 @@ function Navbar() {
               <a className="nav__link">Blog</a>
             </Link>
           </li>
-          <li className="nav__item">
-            <Link href="/api/auth/signin">
-              <a
-                className="nav__link"
-                onClick={(e) => {
-                  e.preventDefault();
-                  signIn("github");
-                }}
-              >
-                Sign In
-              </a>
-            </Link>
-          </li>
-          <li className="nav__item">
-            <Link href="/api/auth/signout">
-              <a
-                className="nav__link"
-                onClick={(e) => {
-                  e.preventDefault();
-                  signOut();
-                }}
-              >
-                Sign Out
-              </a>
-            </Link>
-          </li>
+          {!loading && !session && (
+            <li className="nav__item">
+              <Link href="/api/auth/signin">
+                <a
+                  className="nav__link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signIn("github");
+                  }}
+                >
+                  Sign In
+                </a>
+              </Link>
+            </li>
+          )}
+          {session && (
+            <li className="nav__item">
+              <Link href="/api/auth/signout">
+                <a
+                  className="nav__link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signOut();
+                  }}
+                >
+                  Sign Out
+                </a>
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

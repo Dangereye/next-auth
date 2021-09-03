@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { signIn, signOut } from "next-auth/client";
 
 function Navbar() {
   return (
@@ -20,12 +21,28 @@ function Navbar() {
           </li>
           <li className="nav__item">
             <Link href="/api/auth/signin">
-              <a className="nav__link">Sign In</a>
+              <a
+                className="nav__link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  signIn("github");
+                }}
+              >
+                Sign In
+              </a>
             </Link>
           </li>
           <li className="nav__item">
             <Link href="/api/auth/signout">
-              <a className="nav__link">Sign Out</a>
+              <a
+                className="nav__link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  signOut();
+                }}
+              >
+                Sign Out
+              </a>
             </Link>
           </li>
         </ul>

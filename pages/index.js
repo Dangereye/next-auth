@@ -2,7 +2,7 @@ import { useSession } from "next-auth/client";
 
 function Home() {
   const [session, loading] = useSession();
-
+  console.log([session]);
   return (
     <main className="main">
       <div className="container">
